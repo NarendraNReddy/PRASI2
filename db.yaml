@@ -41,5 +41,7 @@
       msg: "{{mysql_output}}"  
 
   - name: set db password
-    ansible.mysql.command: "mysql_secure_installation --set-root-pass {{mysql_root_password}}"    
+    ansible.builtin.command: "mysql_secure_installation --set-root-pass {{mysql_root_password}}"      
+
+ 
       
