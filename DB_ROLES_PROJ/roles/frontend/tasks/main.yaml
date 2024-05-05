@@ -7,21 +7,27 @@
     name: nginx 
     state: started
     enabled: yes 
-- name: rm -rf /usr/share/nginx/html/*
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: absent   
 
-- name: rm -rf /usr/share/nginx/html/*
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: directory     
+- name: app pre load req from common
+  ansible.builtin.importrole:
+    name: common
+    tasks_from: app-pre-req
 
-- name: unarchieve
-  ansible.builtin.unarchive:
-    src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip 
-    dest: /usr/share/nginx/html
-    remote_src: yes
+# - name: rm -rf /usr/share/nginx/html
+#   ansible.builtin.file:
+#     path: /usr/share/nginx/html
+#     state: absent   
+
+# - name: rm -rf /usr/share/nginx/html/*
+#   ansible.builtin.file:
+#     path: /usr/share/nginx/html
+#     state: directory     
+
+# - name: unarchieve
+#   ansible.builtin.unarchive:
+#     src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip 
+#     dest: /usr/share/nginx/html
+#     remote_src: yes
           
 - name: copy expens.conf
   ansible.builtin.template:
