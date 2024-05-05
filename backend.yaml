@@ -14,7 +14,14 @@
       state: latest
     loop:
     - nodejs
-    - mysql      
+    - mysql  
+
+  - name: install PIP
+    ansible.builtin.pip:
+      name:
+      - PyMySQL
+      - cryptography
+      executable: pip3.9  
 
   - name: user add expense
     ansible.builtin.user:
@@ -40,5 +47,4 @@
     ansible.builtin.copy:
       src: backend.service
       dest: /etc/systemd/system/backend.service  
-  
-        
+
