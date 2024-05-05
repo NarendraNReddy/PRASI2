@@ -25,7 +25,7 @@
           
 - name: copy expens.conf
   ansible.builtin.copy:
-    src: expense.conf
+    src: expense.conf.j2
     dest: /etc/nginx/default.d/expense.conf
   notify:
   - restart nginx 
