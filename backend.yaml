@@ -10,8 +10,11 @@
 
   - name: install node js
     ansible.builtin.dnf:
-      name: nodejs 
-      state: latest     
+      name: "{{item}}" 
+      state: latest
+    loop:
+    - nodejs
+    - mysql      
 
   - name: user add expense
     ansible.builtin.user:
@@ -36,4 +39,6 @@
   - name: copying backend service code
     ansible.builtin.copy:
       src: backend.service
-      dest: /etc/systemd/system/backend.service    
+      dest: /etc/systemd/system/backend.service  
+  
+        
