@@ -60,24 +60,27 @@
       src: backend.service
       dest: /etc/systemd/system/backend.service
 
-  - name: daemon reload
-    ansible.builtin.systemd_service:
-      daemon_reload: true    
+  
 
   - name: start and enable backend
     ansible.builtin.service:
       name: backend
       state: started
-      enabled: yes    
+      enabled: yes
+
   # #mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pExpenseApp@1 < /app/schema/backend.sql
   - name: Push schema in db
-    community.mysql.mysql_info:
+    community.mysql.mysql_db:
      login_user: root
      login_password: "{{mysql_root_password}}"
      login_host: "{{login_host}}"
      target: /app/schema/backend.sql
      state: import
      name: all
+
+  - name: daemon reload
+    ansible.builtin.systemd_service:
+      daemon_reload: true   
 
   # systemctl restart backend
   - name: restart backend
