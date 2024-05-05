@@ -36,6 +36,10 @@
     ignore_errors: yes 
     register: mysql_output
 
+  - name: mysql output info
+    ansible.builtin.debug:
+      msg: "{{mysql_output}}"    
+
 
 
 
