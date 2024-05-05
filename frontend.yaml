@@ -1,0 +1,19 @@
+- name: configure db server
+  hosts: frontend
+  become: yes 
+  tasks:
+  - name: install nginx
+    ansible.builtin.dnf:
+      name: nginx
+      state: latest
+
+  - name: enable and start nginx
+    ansible.builtin.service:
+      name: nginx 
+      state: started
+      enabled: yes 
+  #rm -rf /usr/share/nginx/html/*
+  - name: remove html
+    ansible.builtin.file:
+      path: /usr/share/nginx/html
+      state: absent
