@@ -20,6 +20,13 @@
       state: started
       enabled: yes   
 
+  - name: install pip for db 
+    ansible.builtin.pip:
+      name: 
+      - PyMySQL
+      - cryptography
+      executable: pip3.9   
+
   #mysql_secure_installation --set-root-pass ExpenseApp@1 - To run this below info pre check
   - name: whether to check db root password set or not
     community.mysql.mysql_info:
@@ -28,7 +35,8 @@
      login_host: "{{login_host}}"
     ignore_errors: yes 
     register: mysql_output
-    
-     
+
+
+
 
 
