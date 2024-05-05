@@ -2,6 +2,7 @@
   ansibe.builtin.file:
    path: "{{app_location}}"
    state: absent
+
      
 
 - name: create app dir
