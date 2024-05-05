@@ -31,4 +31,9 @@
   - name: npm install
     ansible.builtin.command: "npm install"
     args:
-     chdir: /app      
+     chdir: /app   
+
+  - name: copying backend service code
+    ansible.builtin.copy:
+      src: backend.service
+      dest: /etc/systemd/system/backend.service    
