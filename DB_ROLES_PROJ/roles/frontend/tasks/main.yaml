@@ -8,8 +8,8 @@
     state: started
     enabled: yes 
 
-- name: app pre load req from common
-  ansible.builtin.importrole:
+- name: import common role run app pre -req
+  ansible.builtin.import_role:
     name: common
     tasks_from: app-pre-req
 
