@@ -6,6 +6,11 @@
     login_host: db.daws78s-nnr.online
 
 
+  # vars:
+  #   mysql_root_password: ExpenseApp@1
+  #   login_host: db.daws78s-nnr.online
+
+
   tasks:
   - name: disable node js
     ansible.builtin.command: dnf module disable nodejs -y
