@@ -71,12 +71,12 @@
   # #mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pExpenseApp@1 < /app/schema/backend.sql
   - name: Push schema in db
     community.mysql.mysql_db:
-     login_user: root
-     login_password: "{{mysql_root_password}}"
-     login_host: "{{login_host}}"
-     target: /app/schema/backend.sql
-     state: import
-     name: all
+      login_user: root
+      login_password: "{{mysql_root_password}}"
+      login_host: "{{login_host}}"
+      target: /app/schema/backend.sql
+      state: import
+      name: all
 
   - name: daemon reload
     ansible.builtin.systemd_service:
