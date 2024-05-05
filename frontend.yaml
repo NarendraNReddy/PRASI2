@@ -31,3 +31,9 @@
     ansible.builtin.copy:
       src: expense.conf
       dest: /etc/nginx/default.d/expense.conf
+
+  - name: systemctl restart nginx
+    ansible.builtin.service:
+      name: nginx 
+      state: started
+      enabled: yes    
