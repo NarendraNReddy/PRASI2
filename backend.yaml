@@ -27,16 +27,21 @@
   - name: download and unzip the backend 
     ansible.builtin.unarchive:
       src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
-      dest: /app 
+      dest: /app
       remote_src: yes    
-
-  # - name: npm install
-  #   ansible.builtin.command: npm install
-  #   args:
-  #     chdir: /app
 
   - name: install npm
     ansible.builtin.command: npm install
     args:
-      chdir: /app
+      chdir: /app    
+
+  # # - name: npm install
+  # #   ansible.builtin.command: npm install
+  # #   args:
+  # #     chdir: /app
+
+  # - name: install npm
+  #   ansible.builtin.command: npm install
+  #   args:
+  #     chdir: /app
             
