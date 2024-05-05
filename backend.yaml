@@ -12,7 +12,17 @@
     ansible.builtin.dnf:
       name: nodejs
       state: latest
+    loop:
+    - nodejs 
+    - mysql  
   # useradd expense
+
+  - name: install pip for db 
+    ansible.builtin.pip:
+      name: 
+      - PyMySQL
+      - cryptography
+      executable: pip3.9  
 
   - name: adding user
     ansible.builtin.user:
