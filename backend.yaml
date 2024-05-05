@@ -12,4 +12,14 @@
     ansible.builtin.dnf:
       name: dnf
       state: latest
-          
+  # useradd expense
+
+  - name: adding user
+    ansible.builtin.user:
+      name: expense
+
+  #mkdir /app 
+  - name: app dir
+    ansible.builtin.file:
+      path: /app
+      state: directory            
