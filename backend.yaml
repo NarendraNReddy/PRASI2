@@ -10,7 +10,7 @@
 
   - name: install node js
     ansible.builtin.dnf:
-      name: dnf
+      name: nodejs
       state: latest
   # useradd expense
 
@@ -35,13 +35,3 @@
     args:
       chdir: /app    
 
-  # # - name: npm install
-  # #   ansible.builtin.command: npm install
-  # #   args:
-  # #     chdir: /app
-
-  # - name: install npm
-  #   ansible.builtin.command: npm install
-  #   args:
-  #     chdir: /app
-            
