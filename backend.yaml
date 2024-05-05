@@ -35,8 +35,8 @@
   #   args:
   #     chdir: /app
 
-- name: install npm
-  ansible.builtin.command: npm install
-  args:
-    chdir: /app
+  - name: install npm
+    ansible.builtin.command: npm install
+    args:
+      chdir: /app
             
